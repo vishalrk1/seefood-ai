@@ -27,7 +27,7 @@ const ImageSection = () => {
     error,
   } = useSelector((state: RootState) => state.recipe);
 
-  // console.log(recipeStatus, recipe);
+  console.log(user);
 
   const handelGetRecipe = (
     event: React.FormEvent<HTMLFormElement>,
@@ -59,7 +59,7 @@ const ImageSection = () => {
 
       // dispatch generate recipe action
       dispatch(generateRecipe({ foodName, uid: user.uid })).then(() => {
-        console.log('RECIPE: ', recipe);
+        console.log("RECIPE: ", recipe);
         toast.success("Found some great stuff for you!", {
           style: {
             borderRadius: "10px",
@@ -75,7 +75,7 @@ const ImageSection = () => {
             userProfile: {
               ...user,
               credit: user.credit - GPT_TASK_CREDIT,
-              recipes: [...user.recipes, recipe] as Recipe[],
+              recipes: [...user.recipes, recipe as Recipe],
             } as User,
           })
         ).then(() => {
