@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../../redux/store/auth/authSlice";
-import { RootState } from "../../redux/store";
 import { useNavigate } from "react-router-dom";
 
 import Navbar from "../../components/navbar/Navbar";
 import "../../index.css";
+import { RootState } from "../../redux/store/store";
+import { fetchUserProfile, loginUser } from "../../redux/store/auth/action";
 
 const LoginPage: React.FC = () => {
   const dispatch = useDispatch<any>();
@@ -18,7 +18,6 @@ const LoginPage: React.FC = () => {
 
   const handleLogin = async () => {
     dispatch(loginUser({ email, password }))
-      .unwrap()
       .then(() => {
         if (status === "succeeded") {
           navigation("/");

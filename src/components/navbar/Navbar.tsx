@@ -1,8 +1,8 @@
 import React from "react";
 import LogoutButton from "../buttons/LogoutButton";
 import { useSelector } from "react-redux";
-import { RootState } from "../../redux/store";
 import { useNavigate } from "react-router-dom";
+import { RootState } from "../../redux/store/store";
 
 const Navbar: React.FC = () => {
   const { user } = useSelector((state: RootState) => state.auth);

@@ -3,4 +3,11 @@ export interface User {
   name: string;
   email: string;
   credit: number;
+  recipes: [];
+}
+
+export interface Recipe {
+  id: string;
+  foodName: string;
+  recipe: string | null;
 }
