@@ -2,6 +2,7 @@ import React from "react";
 import { GPT_TASK, IMG_GPT_TASK } from "../redux/constants";
 import { twMerge } from "tailwind-merge";
 import { Camera, MessageSquareText } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ServiceChipProps {
   taskName: string;
@@ -11,7 +12,7 @@ interface ServiceChipProps {
 const ServiceChip: React.FC<ServiceChipProps> = ({ taskName, setTaskName }) => {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex h-50 bg-white shadow-md rounded-lg w-3/4 md:w-1/2">
+      <div className="flex h-50 shadow-md rounded-lg w-3/4 md:w-1/2 bg-white">
         <div
           className={twMerge(
             "flex flex-1 justify-center items-center rounded-lg px-2 py-1 gap-2",
@@ -39,8 +40,8 @@ const ServiceChip: React.FC<ServiceChipProps> = ({ taskName, setTaskName }) => {
           className={twMerge(
             "flex flex-1 justify-center items-center rounded-lg px-2 py-1 gap-2",
             taskName === GPT_TASK
-              ? "text-white bg-violet-500"
-              : "text-black font-normal"
+            ? "text-white bg-violet-500"
+            : "text-black font-normal"
           )}
           onClick={() => setTaskName(GPT_TASK)}
         >

@@ -16,6 +16,7 @@ export const registerUser = createAsyncThunk(
         name,
         email,
         credit: 6,
+        recipes: [],
       };
       await firestore.collection("seefood-users").doc(uid).set(UserData);
       return UserData;
@@ -51,6 +52,7 @@ export const logoutUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       await auth.signOut();
+      localStorage.removeItem("persist:root");
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
     }
