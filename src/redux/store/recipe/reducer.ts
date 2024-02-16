@@ -3,18 +3,14 @@ import { Recipe } from "../../Types";
 import { generateRecipe } from "./action";
 
 interface Recipetate {
-  recipe: Recipe;
+  recipe: Recipe | null;
   status: string;
   loading: boolean;
   error: string | null;
 }
 
 const initialState: Recipetate = {
-  recipe: {
-    id: "",
-    foodName: "",
-    recipe: "",
-  } as Recipe,
+  recipe: null,
   status: "idle",
   loading: false,
   error: null,
@@ -25,7 +21,6 @@ const recipeReducer = createReducer(initialState, (builder) => {
     .addCase(generateRecipe.pending, (state) => {
       state.status = "loading";
       state.loading = true;
-      state.recipe = {} as Recipe;
     })
     .addCase(generateRecipe.fulfilled, (state, action) => {
       state.status = "succeeded";

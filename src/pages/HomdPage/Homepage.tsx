@@ -14,7 +14,7 @@ const Homepage = () => {
   useEffect(() => {
     // setting recipe to null
     if (status === "successed" && recipe !== null) {
-      recipe.recipe = user.recipes[0];
+      recipe.recipe = null;
     }
   }, []);
 

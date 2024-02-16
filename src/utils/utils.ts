@@ -8,7 +8,7 @@ import {
 } from "../redux/store/auth/action";
 import { generateRecipe } from "../redux/store/recipe/action";
 
-function separateParagraph(paragraph: string) {
+export function separateParagraph(paragraph: string) {
   const sections = paragraph.split("\n\n");
   const ingredientIndex = sections.findIndex((section) =>
     section.startsWith("Ingredients:")
