@@ -1,5 +1,5 @@
 # SeeFood.ai
-an web App to classify food dishes and then to disply recipe of that food
+Seefood is a web app that IDs your dishes just by snapping a pic. Once it figures out what you're craving, it serves up a tasty recipe pronto, all thanks to our fancy GPT wizardry. No more guessing games or endless scrolling for recipes – just snap, cook, and enjoy!
 
 ![Seefood.ai screenshots](screenshot/img-5.png)
 
@@ -23,18 +23,17 @@ an web App to classify food dishes and then to disply recipe of that food
 - Mobile Support
 
 ## Deployment
-- Firebase Hosting
-- Vercel Cloud Functions
+- Vercel Cloud
 
 # Screenshots
 
 ![Seefood.ai screenshots](screenshot/img-1.png)
-![Seefood.ai screenshot](screenshot/img-2.png)
-![Seefood.ai screenshot](screenshot/img-7.png)
-![Seefood.ai screenshot](screenshot/img-8.png)
-![Seefood.ai screenshot](screenshot/img-3.png)
 ![Seefood.ai screenshot](screenshot/img-4.png)
 ![Seefood.ai screenshot](screenshot/img-6.png)
+![Seefood.ai screenshot](screenshot/img-7.png)
+![Seefood.ai screenshot](screenshot/img-2.png)
+![Seefood.ai screenshot](screenshot/img-8.png)
+![Seefood.ai screenshot](screenshot/img-3.png)
 
 ## Contact Me
 
