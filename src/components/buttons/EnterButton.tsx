@@ -1,15 +1,22 @@
+import { cn } from "@/lib/utils";
+import { IMG_GPT_TASK } from "@/redux/constants";
 import React from "react";
 
 interface EnterButtonProps {
   loading: boolean;
+  taskName: string;
 }
 
-const EnterButton: React.FC<EnterButtonProps> = ({ loading }) => {
+const EnterButton: React.FC<EnterButtonProps> = ({ loading, taskName }) => {
   return (
     <button
       type="submit"
-      className="hover:border-gray-700 hover:text-gray-700 absolute inset-y-0 right-0 my-1.5 mr-1.5 flex w-10 items-center justify-center rounded border border-gray-200 font-sans text-sm font-medium text-gray-400 peer-focus:border-gray-700 peer-focus:text-gray-700"
-      title="Summarize Article"
+      className={cn([
+        "hover:border-gray-700 hover:text-gray-700 absolute inset-y-0 right-0 my-1.5 mr-1.5 flex w-10 items-center justify-center rounded border font-sans text-sm font-medium text-gray-400 peer-focus:border-gray-700 peer-focus:text-gray-700",
+        // "border-gray-200",
+        taskName === IMG_GPT_TASK ? "border-gray-700 bg-white" : "border-gray-200",
+      ])}
+      title="Generate recipe"
     >
       {loading ? (
         <div

@@ -1,7 +1,8 @@
 import { CardWrapper } from "@/components/auth/card-wrapper";
 import Navbar from "@/components/navbar/Navbar";
+import { SucessInfo } from "@/components/sucessInfo";
 import emailjs from "@emailjs/browser";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -20,6 +21,22 @@ const ContactPage = () => {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    const persistObj = JSON.parse(
+      localStorage.getItem("persist:root") as string
+    );
+    const email = JSON.parse(persistObj.auth)?.user?.email;
+    const name = JSON.parse(persistObj.auth)?.user?.name;
+
+    if (email) {
+      setFormData((prevState) => ({
+        ...prevState,
+        email: email,
+        name: name
+      }));
+    }
+  });
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -79,6 +96,7 @@ const ContactPage = () => {
                 className="mb-2 w-full font-s rounded-md border border-gray-200 bg-white py-2.5 pl-10 pr-12 text-sm shadow-sm font-satoshi font-medium focus:border-black focus:outline-none focus:ring-0"
                 value={formData.email}
                 onChange={handleChange}
+                readOnly={formData.email !== "" ? true : false}
               />
               <input
                 type="text"
@@ -99,6 +117,7 @@ const ContactPage = () => {
               {/* {isError && (
                     <div className="text-red-500 text-sm ml-1">{`Something went wrong try again`}</div>
                   )} */}
+              <SucessInfo message="If you need credits mention it i'll add credits to your account" />
               <button
                 className="w-full bg-black mt-3 text-white py-2.5 font-satoshi font-medium rounded-md hover:bg-gray-700 focus:outline-none focus:ring-0 disabled:bg-gray-200 disabled:text-gray-700 disabled:cursor-not-allowed"
                 onClick={handleSubmit}

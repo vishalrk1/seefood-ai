@@ -1,30 +1,51 @@
-# React + TypeScript + Vite
+# SeeFood.ai
+an web App to classify food dishes and then to disply recipe of that food
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Seefood.ai screenshots](screenshots/img-5.png)
 
-Currently, two official plugins are available:
+## Tech Stack
+- React JS
+- Typescript
+- Firebase
+- Tailwind CSS
+- Open AI
+- Redux Toolkit
+- Framer Motion
+- EmailJS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Image Classification
+- Recipe Generation
+- User Authentication
+- User Profile
+- User History
+- Error Handling
+- Mobile Support
 
-## Expanding the ESLint configuration
+## Deployment
+- Firebase Hosting
+- Vercel Cloud Functions
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# Screenshots
 
-- Configure the top-level `parserOptions` property like this:
+![Seefood.ai screenshots](screenshots/img-1.png)
+![Seefood.ai screenshots](screenshots/img-2.png)
+![Seefood.ai screenshots](screenshots/img-7.png)
+![Seefood.ai screenshots](screenshots/img-8.png)
+![Seefood.ai screenshots](screenshots/img-3.png)
+![Seefood.ai screenshots](screenshots/img-4.png)
+![Seefood.ai screenshots](screenshots/img-6.png)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Contact Me
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<p align="start">
+    <a href="https://github.com/vishalrk1" target="_blank">
+        <img alt="Github" src="https://img.shields.io/badge/Github-%23F37626.svg?style=for-the-badge&logo=github&logoColor=white" />&nbsp;
+    </a>
+    <a href="https://www.linkedin.com/in/vishal-karangale-126492216/" target="_blank">
+        <img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-%23F37626.svg?style=for-the-badge&logo=linkedin&logoColor=white" />&nbsp;
+    </a>
+     <a href="https://www.instagram.com/vishal_rk1/" target="_blank">
+       <img alt="Instagram" src="https://img.shields.io/badge/Instagram-%23F37626.svg?style=for-the-badge&logo=instagram&logoColor=white" />&nbsp;
+    </a>
+</p>
