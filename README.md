@@ -1,7 +1,7 @@
 # SeeFood.ai
 an web App to classify food dishes and then to disply recipe of that food
 
-![Seefood.ai screenshots](screenshots/img-5.png)
+![Seefood.ai screenshots](screenshot/img-5.png)
 
 ## Tech Stack
 - React JS
@@ -28,13 +28,13 @@ an web App to classify food dishes and then to disply recipe of that food
 
 # Screenshots
 
-![Seefood.ai screenshots](screenshots/img-1.png)
-![Seefood.ai screenshots](screenshots/img-2.png)
-![Seefood.ai screenshots](screenshots/img-7.png)
-![Seefood.ai screenshots](screenshots/img-8.png)
-![Seefood.ai screenshots](screenshots/img-3.png)
-![Seefood.ai screenshots](screenshots/img-4.png)
-![Seefood.ai screenshots](screenshots/img-6.png)
+![Seefood.ai screenshots](screenshot/img-1.png)
+![Seefood.ai screenshot](screenshot/img-2.png)
+![Seefood.ai screenshot](screenshot/img-7.png)
+![Seefood.ai screenshot](screenshot/img-8.png)
+![Seefood.ai screenshot](screenshot/img-3.png)
+![Seefood.ai screenshot](screenshot/img-4.png)
+![Seefood.ai screenshot](screenshot/img-6.png)
 
 ## Contact Me
 
