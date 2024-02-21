@@ -11,6 +11,8 @@ import { Button } from "../ui/button";
 import { IMG_GPT_TASK } from "@/redux/constants";
 import { cn } from "@/lib/utils";
 import { ErrorInfo } from "../ErrorInfo";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store/store";
 
 interface ImageDialogButtonProps {
   loading: boolean;
@@ -21,6 +23,8 @@ const ImageDialogButton: React.FC<ImageDialogButtonProps> = ({
   loading,
   taskName,
 }) => {
+  const { recipe } = useSelector((state: RootState) => state.recipe);
+
   const openInNewTab = (url: string) => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) newWindow.opener = null;
@@ -57,6 +61,11 @@ const ImageDialogButton: React.FC<ImageDialogButtonProps> = ({
               : "border-gray-200",
           ])}
           title="Generate recipe"
+          onClick={() => {
+            if (recipe !== null) {
+              recipe.recipe = null;
+            }
+          }}
         >
           {loading ? (
             <div

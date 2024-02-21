@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { auth, firestore } from "../../firebase";
+import { auth, firestore, googleProvider } from "../../firebase";
 import { User } from "../../Types";
 
 export const registerUser = createAsyncThunk(
@@ -53,6 +53,7 @@ export const logoutUser = createAsyncThunk(
     try {
       await auth.signOut();
       localStorage.removeItem("persist:root");
+      window.location.reload();
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -77,10 +78,63 @@ export const fetchUserProfile = createAsyncThunk(
 
 export const updateUserProfile = createAsyncThunk(
   "user/updateUserProfile",
-  async ({ uid, userProfile }: { uid: string; userProfile: User }, thunkAPI) => {
+  async (
+    { uid, userProfile }: { uid: string; userProfile: User },
+    thunkAPI
+  ) => {
     try {
       await firestore.collection("seefood-users").doc(uid).update(userProfile);
       return userProfile;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const signInWithGoogle = createAsyncThunk(
+  "auth/signInWithGoogle",
+  async (_, thunkAPI) => {
+    try {
+      const { user } = await auth.signInWithPopup(googleProvider);
+      const userData = {
+        uid: user?.uid,
+        name: user?.displayName,
+        email: user?.email,
+        credit: 6,
+        recipes: [],
+      };
+      const userRef = await firestore
+        .collection("seefood-users")
+        .doc(userData.uid)
+        .get();
+      if (!userRef.exists) {
+        await firestore
+          .collection("seefood-users")
+          .doc(userData.uid)
+          .set(userData);
+      }
+      return userData;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logInWithGoogle = createAsyncThunk(
+  "auth/logInWithGoogle",
+  async (_, thunkAPI) => {
+    try {
+      const { user } = await auth.signInWithPopup(googleProvider);
+      const doc = await firestore
+        .collection("seefood-users")
+        .doc(user?.uid)
+        .get();
+      if (doc.exists) {
+        console.log(doc.data() as User);
+        return doc.data() as User;
+      } else {
+        throw new Error("User profile not found");
+      }
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
     }

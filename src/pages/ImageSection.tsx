@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { IMG_GPT_TASK } from "../redux/constants";
 import ServiceChip from "../components/serviceChip";
-import { CheckCircle2, MessageSquareText, UploadCloud } from "lucide-react";
+import {
+  CheckCircle2,
+  MessageSquareText,
+  Trash,
+  UploadCloud,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import EnterButton from "../components/buttons/EnterButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,6 +15,7 @@ import { RootState } from "../redux/store/store";
 import HistorySection from "../components/History/HistorySection";
 import { getOpenaiResponse } from "../utils/utils";
 import ImageDialogButton from "@/components/buttons/ImageDialogButton";
+import { Button } from "@/components/ui/button";
 
 const ImageSection = () => {
   const [foodName, setFoodName] = useState("");
@@ -97,11 +103,23 @@ const ImageSection = () => {
                   ) : (
                     <>
                       <div className="h-full w-1/4 rounded-lg shadow-md">
-                        <img
-                          src={foodImage}
-                          alt="food"
-                          className="h-full w-full rounded-lg object-cover"
-                        />
+                        <div className="relative h-full w-full rounded-lg overflow-hidden">
+                          <div className="z-30 absolute top-2 right-2">
+                            <Button
+                              onClick={() => setFoodImage(null)}
+                              type="button"
+                              variant="destructive"
+                              size="icon"
+                            >
+                              <Trash className="h-4 w-4" />
+                            </Button>
+                          </div>
+                          <img
+                            src={foodImage}
+                            alt="food"
+                            className="h-full w-full rounded-lg object-cover"
+                          />
+                        </div>
                       </div>
                       <div className="flex flex-col items-center justify-center w-full text-center pt-5 pb-6">
                         <CheckCircle2 className="w-6 h-6 mb-1 text-green-400" />

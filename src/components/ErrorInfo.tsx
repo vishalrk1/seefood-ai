@@ -11,8 +11,8 @@ export const ErrorInfo: React.FC<ErrorInfoProps> = ({ message }) => {
   }
 
   return (
-    <div className="bg-destructive/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-destructive mt-2">
-      <ExclamationTriangleIcon className="w-5 h-5" />
+    <div className="bg-destructive/15 p-3 rounded-md flex items-center gap-x-3 text-sm text-destructive mt-2">
+      <ExclamationTriangleIcon className="w-6 h-6" />
       <p>{message}</p>
     </div>
   );

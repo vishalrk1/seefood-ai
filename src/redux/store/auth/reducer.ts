@@ -1,9 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {
   fetchUserProfile,
+  logInWithGoogle,
   loginUser,
   logoutUser,
   registerUser,
+  signInWithGoogle,
   updateUserProfile,
 } from "./action";
 
@@ -43,6 +45,14 @@ const authReducer = createReducer(initialState, (builder) => {
       state.status = "loading";
       state.error = null;
     })
+    .addCase(signInWithGoogle.pending, (state) => {
+      state.status = "loading";
+      state.error = null;
+    })
+    .addCase(logInWithGoogle.pending, (state) => {
+      state.status = "loading";
+      state.error = null;
+    })
 
     // call suces state
     .addCase(registerUser.fulfilled, (state, action) => {
@@ -65,6 +75,14 @@ const authReducer = createReducer(initialState, (builder) => {
       state.status = "succeeded";
       state.user = action.payload;
     })
+    .addCase(signInWithGoogle.fulfilled, (state, action) => {
+      state.status = "succeeded";
+      state.user = action.payload;
+    })
+    .addCase(logInWithGoogle.fulfilled, (state, action) => {
+      state.status = "succeeded";
+      state.user = action.payload;
+    })
 
     // rejected state
     .addCase(registerUser.rejected, (state, action) => {
@@ -84,6 +102,14 @@ const authReducer = createReducer(initialState, (builder) => {
       state.error = action.payload as string;
     })
     .addCase(updateUserProfile.rejected, (state, action) => {
+      state.status = "failed";
+      state.error = action.payload as string;
+    })
+    .addCase(signInWithGoogle.rejected, (state, action) => {
+      state.status = "failed";
+      state.error = action.payload as string;
+    })
+    .addCase(logInWithGoogle.rejected, (state, action) => {
       state.status = "failed";
       state.error = action.payload as string;
     });

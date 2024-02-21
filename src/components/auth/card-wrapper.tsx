@@ -10,6 +10,7 @@ interface CardWrapperProps {
   backButtonHref: string;
   showSocials?: boolean;
   showHeader?: boolean;
+  googlClick?: () => void;
 }
 
 export const CardWrapper = ({
@@ -19,6 +20,7 @@ export const CardWrapper = ({
   backButtonHref,
   showSocials = false,
   showHeader = true,
+  googlClick
 }: CardWrapperProps) => {
   return (
     <Card className="w-[400px] shadow-md pt-4">
@@ -30,7 +32,7 @@ export const CardWrapper = ({
       <CardContent>{children}</CardContent>
       {showSocials && (
         <CardFooter>
-          <Socials />
+          <Socials googlClick={googlClick}/>
         </CardFooter>
       )}
       <CardFooter>

@@ -36,7 +36,7 @@ const ContactPage = () => {
         name: name
       }));
     }
-  });
+  }, []);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -73,13 +73,12 @@ const ContactPage = () => {
           });
         }
       );
-    console.log(formData);
   };
 
   return (
-    <div className="relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6">
+    <main className="relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6">
       <Navbar />
-      <div className="h-screen">
+      <section className="h-screen">
         <div className="flex flex-col items-center justify-center mt-10">
           <div className="rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex flex-col p-4 w-max">
             <CardWrapper
@@ -114,9 +113,6 @@ const ContactPage = () => {
                 value={formData.message}
                 onChange={handleChange}
               />
-              {/* {isError && (
-                    <div className="text-red-500 text-sm ml-1">{`Something went wrong try again`}</div>
-                  )} */}
               <SucessInfo message="If you need credits mention it i'll add credits to your account" />
               <button
                 className="w-full bg-black mt-3 text-white py-2.5 font-satoshi font-medium rounded-md hover:bg-gray-700 focus:outline-none focus:ring-0 disabled:bg-gray-200 disabled:text-gray-700 disabled:cursor-not-allowed"
@@ -128,8 +124,8 @@ const ContactPage = () => {
             </CardWrapper>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

@@ -10,11 +10,17 @@ import { generateRecipe, setRecipe } from "../redux/store/recipe/action";
 
 export function separateParagraph(paragraph: string) {
   const sections = paragraph.split("\n\n");
-  const ingredientIndex = sections.findIndex((section) =>
-    section.startsWith("Ingredients:")
+  const ingredientHeaders = ["Ingredients", "Ingridients"];
+
+  const ingredientIndex = sections.findIndex(
+    (section) =>
+      ingredientHeaders.some((header) =>
+        section.trim().toLowerCase().startsWith(header.toLowerCase())
+      )
   );
+
   const instructionIndex = sections.findIndex((section) =>
-    section.startsWith("Instructions:")
+    section.startsWith("Instructions")
   );
   const servingIndex = sections.findIndex((section) =>
     section.startsWith("Serving")
@@ -23,33 +29,34 @@ export function separateParagraph(paragraph: string) {
     section.startsWith("Protein Breakdown")
   );
   const descriptionIndex = sections.findIndex((section) =>
-    section.startsWith("Description:")
+    section.startsWith("Description")
   );
 
   const extractPoints = (section: string) => {
     console.log(section);
     return section
-      .split("\n")
-      .slice(1)
-      .map((point) => point.trim().replace(/^(?:- |\d+\.\s*)/, ""));
+      ?.split("\n")
+      ?.slice(1)
+      ?.map((point) => point?.trim()?.replace(/^(?:- |\d+\.\s*)/, ""));
   };
 
+  console.log(sections);
   const ingredients = extractPoints(sections[ingredientIndex]);
   const instructions = extractPoints(sections[instructionIndex]);
   const serving = sections[servingIndex]
     ?.split(": ")
-    .slice(1)
-    .join("\n")
+    ?.slice(1)
+    ?.join("\n")
     .trim();
-  const calorieBreakdown = extractPoints(sections[calorieIndex]).map((point) =>
+  const calorieBreakdown = extractPoints(sections[calorieIndex])?.map((point) =>
     point.replace(/^\s*[-\w]+:\s*/, "")
   );
 
   const description = sections[descriptionIndex]
-    .split("\n")
-    .slice(1)
-    .join("\n")
-    .trim();
+    ?.split("\n")
+    ?.slice(1)
+    ?.join("\n")
+    ?.trim();
 
   return { ingredients, instructions, serving, calorieBreakdown, description };
 }

@@ -20,11 +20,11 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div className="relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6">
+    <section className="relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6">
       <Hero />
       <ImageSection />
       {recipe !== null && <RecipeContainer />}
-    </div>
+    </section>
   );
 };
 

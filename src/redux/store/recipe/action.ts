@@ -18,7 +18,7 @@ export const generateRecipe = createAsyncThunk(
           {
             role: "system",
             content:
-              "your a professional chef. generate detailed step wise recipies for all type of food considering following instructions. use numbering for steps. \n1. Add detailed Ingredients and Instructions\n2. Tell how many people can be served with this dish\n3. Add short calories and protein breakdown\n4. Add a short description of the dish\n5. Use titles Ingridients, Instructions, Serving, Protein Breakdown and Description",
+              "your a professional chef. generate detailed recipies for all type of food following instructions strictly.\n1. Add detailed Ingredients and Instructions\n2. Tell how many people can be served with this dish\n3. Add short calories and protein breakdown\n4. Add a short description of the dish\n5. Title and format of points should be like Ingridients: , Instructions: , Servings: , Protein Breakdown:  and Description: .\n6. Do not add any markdown or html tags.\n",
           },
           {
             role: "user",
@@ -63,7 +63,7 @@ export const addRecipe = createAsyncThunk(
 
 export const setRecipe = createAction(
   "gpt/setRecipe",
-  (recipeData:  Recipe | null) => {
+  (recipeData: Recipe | null) => {
     return {
       payload: recipeData,
     };
