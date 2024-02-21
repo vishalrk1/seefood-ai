@@ -12,11 +12,10 @@ export function separateParagraph(paragraph: string) {
   const sections = paragraph.split("\n\n");
   const ingredientHeaders = ["Ingredients", "Ingridients"];
 
-  const ingredientIndex = sections.findIndex(
-    (section) =>
-      ingredientHeaders.some((header) =>
-        section.trim().toLowerCase().startsWith(header.toLowerCase())
-      )
+  const ingredientIndex = sections.findIndex((section) =>
+    ingredientHeaders.some((header) =>
+      section.trim().toLowerCase().startsWith(header.toLowerCase())
+    )
   );
 
   const instructionIndex = sections.findIndex((section) =>
@@ -33,14 +32,12 @@ export function separateParagraph(paragraph: string) {
   );
 
   const extractPoints = (section: string) => {
-    console.log(section);
     return section
       ?.split("\n")
       ?.slice(1)
       ?.map((point) => point?.trim()?.replace(/^(?:- |\d+\.\s*)/, ""));
   };
 
-  console.log(sections);
   const ingredients = extractPoints(sections[ingredientIndex]);
   const instructions = extractPoints(sections[instructionIndex]);
   const serving = sections[servingIndex]
@@ -146,6 +143,16 @@ export const getOpenaiResponse = (
                 color: "#fff",
               },
             });
+            toast.success(
+              `You have ${user.credit - GPT_TASK_CREDIT} credits left `,
+              {
+                style: {
+                  borderRadius: "10px",
+                  background: "#333",
+                  color: "#fff",
+                },
+              }
+            );
           });
         } else {
           toast.error("Something Went Wrong", {
@@ -159,7 +166,6 @@ export const getOpenaiResponse = (
       }
     );
   } catch (err) {
-    console.error(err);
     alert("Something went wrong");
     setIsFetching(false);
   }

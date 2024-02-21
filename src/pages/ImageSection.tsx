@@ -28,11 +28,9 @@ const ImageSection = () => {
     (state: RootState) => state.recipe
   );
 
-  // console.log("Recipe Status: ", recipeStatus);
-
   useEffect(() => {
     if (recipeStatus === "success") {
-      console.log("Recipe: ", recipe);
+      // console.log("Recipe: ", recipe);
     }
   }, [recipe]);
 

@@ -30,7 +30,6 @@ const LoginPage: React.FC = () => {
         } else if (data.type === "auth/loginUser/rejected") {
           setIsError(true);
           setErrorMessage(error?.split(": ")[1]?.split(". ")[0] as string);
-          console.log(error?.split(": ")[1]?.split(". ")[0]);
         }
       })
       .catch((err: any) => {
@@ -40,7 +39,6 @@ const LoginPage: React.FC = () => {
 
   const handelGoogleLogin = () => {
     dispatch(logInWithGoogle()).then((data: any) => {
-      console.log(data);
       if (data.type === "auth/logInWithGoogle/fulfilled") {
         navigation("/");
       } else if (data.type === "auth/loginWithGoogle/rejected") {

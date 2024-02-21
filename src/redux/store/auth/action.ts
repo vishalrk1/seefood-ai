@@ -36,7 +36,6 @@ export const loginUser = createAsyncThunk(
         .doc(user?.uid)
         .get();
       if (doc.exists) {
-        console.log(doc.data() as User);
         return doc.data() as User;
       } else {
         throw new Error("User profile not found");
@@ -130,7 +129,6 @@ export const logInWithGoogle = createAsyncThunk(
         .doc(user?.uid)
         .get();
       if (doc.exists) {
-        console.log(doc.data() as User);
         return doc.data() as User;
       } else {
         throw new Error("User profile not found");

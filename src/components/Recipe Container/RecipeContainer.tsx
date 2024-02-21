@@ -53,8 +53,6 @@ const RecipeContainer: React.FC = () => {
     }
   }, [recipe]);
 
-  console.log(detailedRecipe);
-
   return (
     <div className="flex flex-col gap-2 my-3 w-full">
       <div className="flex gap-2 w-full">
@@ -73,7 +71,7 @@ const RecipeContainer: React.FC = () => {
         >
           <p className="text-xl font-semibold font-satoshi">Ingredients</p>
           <motion.ul variants={ulVarient} className="px-4">
-            {detailedRecipe?.ingredients.map((item: any) => (
+            {detailedRecipe?.ingredients?.map((item: any) => (
               <motion.li
                 variants={itemVariants}
                 className="text-sm list-disc font-satoshi"
@@ -100,7 +98,7 @@ const RecipeContainer: React.FC = () => {
             Protein Breakdown
           </p>
           <motion.ul variants={ulVarient} className="px-4 mb-4">
-            {detailedRecipe?.calorieBreakdown.map((item: any) => (
+            {detailedRecipe?.calorieBreakdown?.map((item: any) => (
               <motion.li
                 variants={itemVariants}
                 className="text-sm list-disc font-satoshi"
@@ -131,7 +129,7 @@ const RecipeContainer: React.FC = () => {
         </p>
         <p className="text-xl font-semibold font-satoshi">Instructions</p>
         <motion.ul variants={ulVarient} className="px-4 mt-0">
-          {detailedRecipe?.instructions.map((item: any) => (
+          {detailedRecipe?.instructions?.map((item: any) => (
             <motion.li variants={itemVariants} className="text-sm list-disc">
               {item}
             </motion.li>

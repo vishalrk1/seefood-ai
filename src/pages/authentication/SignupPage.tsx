@@ -29,7 +29,6 @@ const SignupPage: React.FC = () => {
     setIsError(false);
     dispatch(registerUser({ email, password, name }))
       .then((data: any) => {
-        console.log(data);
         if (data.type === "auth/registerUser/fulfilled") {
           toast.success("Congrats! You have successfully earned 6 Credits 🎉", {
             style: {
@@ -46,7 +45,6 @@ const SignupPage: React.FC = () => {
       })
       .catch((err: any) => {
         setIsError(true);
-        console.log(err);
       });
   };
 

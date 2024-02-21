@@ -3,12 +3,12 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY, //"AIzaSyB8dtKNSA_z_kCs_2-VetCULBLGQa7cVdk",
-  authDomain: import.meta.env.VITE_FIREBASE_DOMAIN, //"all-auth-db.firebaseapp.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID, //"all-auth-db",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET, //"all-auth-db.appspot.com",
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID, //"383633344321",
-  appId: import.meta.env.VITE_FIREBASE_APP_ID, //"1:383633344321:web:d443ed46e5adcbc25e43c0",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
   measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 };
 

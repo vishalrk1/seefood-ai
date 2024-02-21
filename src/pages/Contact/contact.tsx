@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader";
 import { CardWrapper } from "@/components/auth/card-wrapper";
 import Navbar from "@/components/navbar/Navbar";
 import { SucessInfo } from "@/components/sucessInfo";
@@ -8,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const ContactPage = () => {
   const navigation = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -33,13 +35,14 @@ const ContactPage = () => {
       setFormData((prevState) => ({
         ...prevState,
         email: email,
-        name: name
+        name: name,
       }));
     }
   }, []);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    setLoading(true);
     emailjs
       .send(
         import.meta.env.VITE_MAILJS_SERVICE_ID,
@@ -61,6 +64,7 @@ const ContactPage = () => {
             email: "",
             message: "",
           });
+          setLoading(false);
           navigation("/");
         },
         (error) => {
@@ -71,6 +75,7 @@ const ContactPage = () => {
               color: "#fff",
             },
           });
+          setLoading(false);
         }
       );
   };
@@ -117,8 +122,9 @@ const ContactPage = () => {
               <button
                 className="w-full bg-black mt-3 text-white py-2.5 font-satoshi font-medium rounded-md hover:bg-gray-700 focus:outline-none focus:ring-0 disabled:bg-gray-200 disabled:text-gray-700 disabled:cursor-not-allowed"
                 onClick={handleSubmit}
-                disabled={status === "loading"}
+                disabled={loading}
               >
+                {loading && <Loader />}
                 Submit
               </button>
             </CardWrapper>
