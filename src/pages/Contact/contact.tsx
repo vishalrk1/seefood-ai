@@ -51,7 +51,7 @@ const ContactPage = () => {
         import.meta.env.VITE_MAILJS_PUBLIC_ID
       )
       .then(
-        (result) => {
+        (_) => {
           toast.success("Message sent successfully 😎", {
             style: {
               borderRadius: "10px",
@@ -67,7 +67,7 @@ const ContactPage = () => {
           setLoading(false);
           navigation("/");
         },
-        (error) => {
+        (_) => {
           toast.success("Message Not sent, please try again 😔😓", {
             style: {
               borderRadius: "10px",

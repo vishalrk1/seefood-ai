@@ -2,7 +2,6 @@ import React from "react";
 import { GPT_TASK, IMG_GPT_TASK } from "../redux/constants";
 import { twMerge } from "tailwind-merge";
 import { Camera, MessageSquareText } from "lucide-react";
-import { motion } from "framer-motion";
 
 interface ServiceChipProps {
   taskName: string;

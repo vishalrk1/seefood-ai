@@ -10,7 +10,7 @@ const openai = new OpenAI({
 
 export const generateRecipe = createAsyncThunk(
   "gpt/generateRecipe",
-  async ({ foodName, uid }: { foodName: string; uid: string }, thunkAPI) => {
+  async ({ foodName }: { foodName: string }, thunkAPI) => {
     try {
       const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",

@@ -2,8 +2,7 @@ import { Variants, motion } from "framer-motion";
 import React, { useState } from "react";
 import { Recipe } from "../../redux/Types";
 import { twMerge } from "tailwind-merge";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../redux/store/store";
+import { useDispatch } from "react-redux";
 import { setRecipe } from "../../redux/store/recipe/action";
 
 interface HistorySectionProps {
@@ -22,7 +21,6 @@ const itemVariants: Variants = {
 const HistorySection: React.FC<HistorySectionProps> = ({ recipes }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-  const { recipe } = useSelector((state: RootState) => state.recipe);
   const emojies = [
     "🍟",
     "🍔",

@@ -110,61 +110,59 @@ export const getOpenaiResponse = (
     }
 
     // dispatch generate recipe action
-    dispatch(generateRecipe({ foodName, uid: user.uid.toString() })).then(
-      (res: any) => {
-        if (res.payload) {
-          const recipe = res.payload as Recipe;
+    dispatch(generateRecipe({ foodName })).then((res: any) => {
+      if (res.payload) {
+        const recipe = res.payload as Recipe;
 
-          toast.success("Found some great stuff for you!", {
+        toast.success("Found some great stuff for you!", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+
+        // update user profile
+        dispatch(
+          updateUserProfile({
+            uid: user.uid.toString(),
+            userProfile: {
+              ...user,
+              credit: user.credit - GPT_TASK_CREDIT,
+              recipes: [...user.recipes, recipe] as Recipe[],
+            } as User,
+          })
+        ).then(() => {
+          dispatch(fetchUserProfile(user.uid.toString()));
+          setIsFetching(false);
+          toast.success(`You have used ${GPT_TASK_CREDIT} credits`, {
             style: {
               borderRadius: "10px",
               background: "#333",
               color: "#fff",
             },
           });
-
-          // update user profile
-          dispatch(
-            updateUserProfile({
-              uid: user.uid.toString(),
-              userProfile: {
-                ...user,
-                credit: user.credit - GPT_TASK_CREDIT,
-                recipes: [...user.recipes, recipe] as Recipe[],
-              } as User,
-            })
-          ).then(() => {
-            dispatch(fetchUserProfile(user.uid.toString()));
-            setIsFetching(false);
-            toast.success(`You have used ${GPT_TASK_CREDIT} credits`, {
+          toast.success(
+            `You have ${user.credit - GPT_TASK_CREDIT} credits left `,
+            {
               style: {
                 borderRadius: "10px",
                 background: "#333",
                 color: "#fff",
               },
-            });
-            toast.success(
-              `You have ${user.credit - GPT_TASK_CREDIT} credits left `,
-              {
-                style: {
-                  borderRadius: "10px",
-                  background: "#333",
-                  color: "#fff",
-                },
-              }
-            );
-          });
-        } else {
-          toast.error("Something Went Wrong", {
-            style: {
-              borderRadius: "10px",
-              background: "#333",
-              color: "#fff",
-            },
-          });
-        }
+            }
+          );
+        });
+      } else {
+        toast.error("Something Went Wrong", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
       }
-    );
+    });
   } catch (err) {
     alert("Something went wrong");
     setIsFetching(false);

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import {
-  loginUser,
   registerUser,
   signInWithGoogle,
 } from "../../redux/store/auth/action";
@@ -23,7 +22,7 @@ const SignupPage: React.FC = () => {
   const [errorMeaasage, setErrorMessage] = useState<string>(
     "Something went wrong try again"
   );
-  const { user, status, error } = useSelector((state: RootState) => state.auth); // Select auth slice state
+  const { status, error } = useSelector((state: RootState) => state.auth); // Select auth slice state
 
   const handleSignup = async () => {
     setIsError(false);
@@ -43,7 +42,7 @@ const SignupPage: React.FC = () => {
           setErrorMessage(error?.split(": ")[1]?.split(". ")[0] as string);
         }
       })
-      .catch((err: any) => {
+      .catch((_err: any) => {
         setIsError(true);
       });
   };

@@ -10,7 +10,6 @@ import { useEffect } from "react";
 
 const Homepage = () => {
   const { recipe, status } = useSelector((state: RootState) => state.recipe);
-  const { user } = useSelector((state: RootState) => state.auth);
 
   useEffect(() => {
     // setting recipe to null
