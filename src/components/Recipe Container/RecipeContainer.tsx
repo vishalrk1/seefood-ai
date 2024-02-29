@@ -55,7 +55,7 @@ const RecipeContainer: React.FC = () => {
 
   return (
     <div className="flex flex-col gap-2 my-3 w-full">
-      <div className="flex gap-2 w-full">
+      <div className="flex flex-col md:flex-row gap-2 w-full">
         <motion.div
           animate={{
             x: 0,
