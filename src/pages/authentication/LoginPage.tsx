@@ -52,7 +52,7 @@ const LoginPage: React.FC = () => {
       <Navbar />
       <div className="h-screen">
         <div className="flex flex-col items-center justify-center mt-10">
-          <div className="rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex flex-col p-4 w-max">
+          <div className="rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex flex-col p-4 w-max -mx-4">
             <CardWrapper
               backButtonHref="/signup"
               backButtonLbel="dont have an account?"

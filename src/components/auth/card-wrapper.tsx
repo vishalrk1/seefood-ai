@@ -23,7 +23,7 @@ export const CardWrapper = ({
   googlClick
 }: CardWrapperProps) => {
   return (
-    <Card className="w-[400px] shadow-md pt-4">
+    <Card className="w-[300px] md:w-[400px] shadow-md pt-4">
       {showHeader && (
         <CardHeader>
           <Header label={headerLabel} />

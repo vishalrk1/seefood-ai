@@ -41,12 +41,12 @@ const HistorySection: React.FC<HistorySectionProps> = ({ recipes }) => {
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
-      className="flex flex-col gap-2 w-full flex-1 items-end"
+      className="flex flex-col md:gap-2 w-max md:w-full flex-1 items-end"
     >
       <motion.button
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center justify-between w-1/2 font-satoshi text-sm text-violet-500 font-semibold bg-white shadow-md rounded-md p-1 px-4 gap-4"
+        className="flex items-center justify-between md:w-1/2 font-satoshi text-sm text-violet-500 font-semibold bg-white shadow-md rounded-md p-1 px-4 gap-4"
       >
         History
         <motion.div

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IMG_GPT_TASK } from "../redux/constants";
 import ServiceChip from "../components/serviceChip";
 import {
@@ -24,15 +24,6 @@ const ImageSection = () => {
   const [isFetching, setIsFetching] = useState(false);
   const dispatch = useDispatch<any>();
   const { user } = useSelector((state: RootState) => state.auth);
-  const { recipe, status: recipeStatus } = useSelector(
-    (state: RootState) => state.recipe
-  );
-
-  useEffect(() => {
-    if (recipeStatus === "success") {
-      // console.log("Recipe: ", recipe);
-    }
-  }, [recipe]);
 
   const handelImageInput = (e: any) => {
     const file = e.target.files[0];
@@ -79,7 +70,6 @@ const ImageSection = () => {
               ? (e) => handelImageSubmit(e)
               : (e) =>
                   getOpenaiResponse(e, foodName, user, setIsFetching, dispatch)
-            // : (e) => handelGetRecipe(e, foodName)
           }
           noValidate
         >
@@ -173,10 +163,14 @@ const ImageSection = () => {
               transition: { duration: 0.7 },
             },
           }}
-          className="flex items-start justify-between w-full"
+          className="flex flex-col md:flex-row md:items-start justify-between w-full"
         >
           <RequiredCredits taskName={taskName} />
-          {user?.recipes && <HistorySection recipes={user?.recipes} />}
+          {user?.recipes && (
+            <div className="flex flex-1 w-full justify-end place-items-end md:items-baseline">
+              <HistorySection recipes={user?.recipes} />
+            </div>
+          )}
         </motion.div>
       </motion.div>
     </section>
