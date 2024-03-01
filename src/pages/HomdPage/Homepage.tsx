@@ -7,6 +7,7 @@ import RecipeContainer from "../../components/Recipe Container/RecipeContainer";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store/store";
 import { useEffect } from "react";
+import GradientBackground from "@/components/GradientBackground";
 
 const Homepage = () => {
   const { recipe, status } = useSelector((state: RootState) => state.recipe);
@@ -19,11 +20,14 @@ const Homepage = () => {
   }, []);
 
   return (
-    <section className="relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6">
-      <Hero />
-      <ImageSection />
-      {recipe !== null && <RecipeContainer />}
-    </section>
+    <>
+      <GradientBackground />
+      <section className="relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6">
+        <Hero />
+        <ImageSection />
+        {recipe !== null && <RecipeContainer />}
+      </section>
+    </>
   );
 };
 

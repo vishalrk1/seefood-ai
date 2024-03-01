@@ -6,20 +6,17 @@ import SignupPage from "./pages/authentication/SignupPage";
 
 import "./App.css";
 import ContactPage from "./pages/Contact/contact";
+import CreditPlansPage from "./pages/CreditPlans/CreditPlansPage";
 
 function App() {
   return (
-    <main>
-      <div className="main">
-        <div className="gradient" />
-      </div>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-    </main>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/plans" element={<CreditPlansPage />} />
+    </Routes>
   );
 }
 
