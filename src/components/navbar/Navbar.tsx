@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center gap-2">
           <LogoutButton />
           <button
-            className="rounded-full border border-gray-300 bg-gray-200 py-1.5 px-5 text-gray-700 transition-all hover:bg-gray-300 hover:text-black flex items-center gap-1 text-sm md:text-base"
+            className="rounded-full border border-gray-300 bg-gray-200 py-1.5 px-2 md:px-5 text-gray-700 transition-all hover:bg-gray-300 hover:text-black flex items-center gap-1 text-sm md:text-base"
             title="Get more credits"
             onClick={() => navigation("/contact")}
           >
