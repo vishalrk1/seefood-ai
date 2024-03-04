@@ -26,7 +26,8 @@ Seefood is a web app that IDs your dishes just by snapping a pic. Once it figure
 - Vercel Cloud
 
 ## Lighthouse Report
-![Seefod.ai Performance Report](https://github.com/vishalrk1/seefood-ai/assets/59719046/d583259e-c86d-43d8-ada3-d1cd08dd1882)
+![Seefod.ai Performance Report - Desktop](https://github.com/vishalrk1/seefood-ai/assets/59719046/de10441e-6e62-4cfc-8565-f05ef10fdb02)
+![Seefod.ai Performance Report - Mobile](https://github.com/vishalrk1/seefood-ai/assets/59719046/d583259e-c86d-43d8-ada3-d1cd08dd1882)
 
 
 # Screenshots
