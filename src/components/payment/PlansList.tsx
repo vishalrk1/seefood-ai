@@ -1,21 +1,31 @@
+import { ALL_PLANS } from "@/utils/AllPlans";
 import { RadioGroup } from "../ui/radio-group";
 import PlanCard from "./PlanCard";
+import React, { useState } from "react";
+import { CreditPlan } from "@/redux/Types";
 
-const PlansList = () => {
+interface PlansListProps {
+  setPlan: React.Dispatch<React.SetStateAction<CreditPlan | undefined>>;
+}
+
+const PlansList: React.FC<PlansListProps> = ({ setPlan }) => {
+  const [selectedPlan, setSelectedPlan] = useState<CreditPlan>(ALL_PLANS[0]);
   return (
     <RadioGroup
-      defaultValue="plan-1"
-      className="mt-5"
-      onValueChange={(value) => console.log(value)}
+      defaultValue={ALL_PLANS[0].planName}
+      className="mt-5 w-full"
+      onValueChange={(name) =>
+        setPlan(ALL_PLANS.find((item) => item.planName === name))
+      }
     >
-      <PlanCard credits="80" price="40.0" perCredit="0.50" planName="plan-1" />
-      <PlanCard credits="200" price="90.0" perCredit="0.45" planName="plan-2" />
-      <PlanCard
-        credits="500"
-        price="150.0"
-        perCredit="0.30"
-        planName="plan-3"
-      />
+      {ALL_PLANS.map((item, index) => (
+        <PlanCard
+          plan={item}
+          selectedPlan={selectedPlan}
+          setSelectedPlan={setSelectedPlan}
+          key={index}
+        />
+      ))}
     </RadioGroup>
   );
 };

@@ -11,3 +11,10 @@ export interface Recipe {
   foodName: string;
   recipe: string | null;
 }
+
+export interface CreditPlan {
+  planName: string;
+  credits: string;
+  price: string;
+  perCredit: string;
+}
